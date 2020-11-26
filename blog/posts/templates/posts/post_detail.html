@@ -3,6 +3,7 @@
 {% block content %}
 <h1>{{ object.title }}</h1>
 <i>{{ object.creation_date }}</i>
+<img src="{{object.image.url}}" width="600" height="400" style="display: block" />
 <p>{{ object.text }}</p>
 {% if user.is_authenticated %}
 <a href="{% url 'posts:update' object.pk %}">Update post</a>

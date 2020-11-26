@@ -1,4 +1,6 @@
 from django.views.generic import TemplateView
 
-class HomePage(TemplateView):
-    template_name = 'index.html'
+from posts.views import PostList
+
+class HomePage(PostList):
+    pass

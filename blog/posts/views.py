@@ -14,15 +14,15 @@ class PostDetailView(DetailView):
 
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
-    fields = ['title', 'text']
+    fields = ['title', 'text', 'image']
 
 
 class PostUpdate(LoginRequiredMixin, UpdateView):
     model = Post
-    fields = ['title', 'text', 'creation_date']
+    fields = ['title', 'text', 'creation_date', 'image']
     template_name_suffix = '_update_form'
 
 
 class PostDelete(LoginRequiredMixin, DeleteView):
     model = Post
-    success_url = reverse_lazy('all')
+    success_url = reverse_lazy('posts:all')
