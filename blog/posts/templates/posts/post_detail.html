@@ -2,6 +2,7 @@
 
 {% block content %}
 <h1>{{ object.title }}</h1>
+<i>{{ object.creation_date }}</i>
 <p>{{ object.text }}</p>
 {% if user.is_authenticated %}
 <a href="{% url 'posts:update' object.pk %}">Update post</a>
