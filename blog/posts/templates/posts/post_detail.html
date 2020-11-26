@@ -3,7 +3,9 @@
 {% block content %}
 <h1>{{ object.title }}</h1>
 <p>{{ object.text }}</p>
+{% if user.is_authenticated %}
 <a href="{% url 'posts:update' object.pk %}">Update post</a>
 <a href="{% url 'posts:delete' object.pk %}">Delete post</a>
+{% endif %}
 {% endblock %}
 
