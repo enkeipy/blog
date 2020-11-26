@@ -6,8 +6,8 @@
 <img src="{{object.image.url}}" width="600" height="400" style="display: block" />
 <p>{{ object.text }}</p>
 {% if user.is_authenticated %}
-<a href="{% url 'posts:update' object.pk %}">Update post</a>
-<a href="{% url 'posts:delete' object.pk %}">Delete post</a>
+<a href="{% url 'posts:update' object.pk %}"><button type="button" class="btn btn-secondary">Update</button></a>
+<a href="{% url 'posts:delete' object.pk %}"><button type="button" class="btn btn-secondary">Delete</button></a>
 {% endif %}
 {% endblock %}
 

@@ -143,3 +143,8 @@ secret_key.txt
 # vscode
 
 .vscode/
+
+# Static and Uploads
+
+static/
+uploads/
