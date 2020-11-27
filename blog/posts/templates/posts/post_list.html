@@ -1,16 +1,22 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-    <h2>Posts</h2>
-    <div>
-        {% for post in object_list %}
-            <a href="{% url 'posts:detail' post.pk %}"><h1>{{ post.title }}</h1></a>
-            {% if post.image %}
-            <img src="{{post.image.url}}" class="img-fluid" alt="{{ post.title }}" />
-            {% else %}
-            <img src="{% static 'posts/images/placeholder.jpg' %}" class="img-fluid" alt="{{ post.title }}" />
-            {% endif %}
-            <i>{{ post.creation_date }}</i>
-        {% endfor %}
+<h2>Posts</h2>
+<div class="row">
+    {% for post in object_list %}
+    <div class="col-md-4 mb-3 mb-md-5">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></h5>
+            <p class="card-text"><small class="text-muted">{{ post.creation_date }}</small></p>
+        </div>
+        {% if post.image %}
+        <img src="{{post.image.url}}" class="card-img-bottom" alt="{{ post.title }}" />
+        {% else %}
+        <img src="{% static 'posts/images/placeholder.jpg' %}" class="card-img-bottom" alt="{{ post.title }}" />
+        {% endif %}
     </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
