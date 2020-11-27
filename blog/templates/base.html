@@ -1,22 +1,30 @@
 <!doctype html>
+{% load static %}
 {% load bootstrap4 %}
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    {% bootstrap_css %}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <title>Blog</title>
-  </head>
-  <body>
-  <div class="container">
+  <!-- Bootstrap CSS -->
+  {% bootstrap_css %}
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">Enkeipy</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <title>Blog</title>
+  <link rel="stylesheet" href="{% static 'blog/css/styles.css'%}">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Castoro:ital@1&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">ENKEIPY</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -28,13 +36,16 @@
           {% endif %}
         </div>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <h1>Blog</h1>
+
+  <div class="container">
     {% block content %}
     {% endblock content %}
-    </div>
-    <!-- Bootstrap Javascript -->
-    {% bootstrap_javascript jquery='full' %}
-  </body>
+  </div>
+  <!-- Bootstrap Javascript -->
+  {% bootstrap_javascript jquery='full' %}
+</body>
+
 </html>

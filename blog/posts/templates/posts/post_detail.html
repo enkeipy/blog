@@ -1,9 +1,13 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 <h1>{{ object.title }}</h1>
 <i>{{ object.creation_date }}</i>
-<img src="{{object.image.url}}" width="600" height="400" style="display: block" />
+{% if object.image %}
+<img src="{{object.image.url}}" class="img-fluid" alt="{{ object.title }}" />
+{% else %}
+<img src="{% static 'posts/images/placeholder.jpg' %}" class="img-fluid" alt="{{ object.title }}" />
+{% endif %}
 <p>{{ object.text }}</p>
 {% if user.is_authenticated %}
 <a href="{% url 'posts:update' object.pk %}"><button type="button" class="btn btn-secondary">Update</button></a>

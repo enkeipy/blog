@@ -148,3 +148,5 @@ secret_key.txt
 
 static/
 uploads/
+
+migrations/

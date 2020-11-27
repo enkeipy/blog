@@ -1,11 +1,15 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
     <h2>Posts</h2>
     <div>
         {% for post in object_list %}
             <a href="{% url 'posts:detail' post.pk %}"><h1>{{ post.title }}</h1></a>
-            <img src="{{post.image.url}}" width="300" height="150" style="display: block" />
+            {% if post.image %}
+            <img src="{{post.image.url}}" class="img-fluid" alt="{{ post.title }}" />
+            {% else %}
+            <img src="{% static 'posts/images/placeholder.jpg' %}" class="img-fluid" alt="{{ post.title }}" />
+            {% endif %}
             <i>{{ post.creation_date }}</i>
         {% endfor %}
     </div>
