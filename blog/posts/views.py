@@ -6,6 +6,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 class PostList(ListView):
     model = Post
+    paginate_by = 3
 
 
 class PostDetailView(DetailView):
