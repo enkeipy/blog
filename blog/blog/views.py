@@ -5,5 +5,5 @@ from posts.models import Post
 
 class HomePage(ListView):
     model = Post
-    paginate_by = 6
+    paginate_by = 1
     template_name = 'index.html'
