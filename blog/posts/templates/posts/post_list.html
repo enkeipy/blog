@@ -1,7 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
+{% block head %}
+<div class="row">
+<div class="col-12">
+<h1>Posts</h1>
+</div>
+</div>
+{% endblock head %}
 {% block content %}
-<h2>Posts</h2>
 <div class="row">
     {% for post in object_list %}
     <div class="col-md-4 mb-3 mb-md-5">
