@@ -8,6 +8,9 @@ class Post(models.Model):
     creation_date = models.DateTimeField(default=timezone.now)
     image = models.ImageField(upload_to='images/', blank=True, null=True)
 
+    class Meta:
+        ordering = ['-pk']
+
     def get_absolute_url(self):
         return reverse('posts:detail', kwargs={'pk': self.pk})
 
