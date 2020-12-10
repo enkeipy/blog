@@ -1,9 +1,8 @@
-from django.views.generic import TemplateView
-from django.views.generic import ListView
-from posts.views import PostList
+from django.views.generic import DetailView
 from posts.models import Post
+from django.shortcuts import get_object_or_404
 
-class HomePage(ListView):
+class HomePage(DetailView):
     model = Post
-    paginate_by = 1
-    template_name = 'index.html'
+    def get_object(self):
+        return Post.objects.last()
