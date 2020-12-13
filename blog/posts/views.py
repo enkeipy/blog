@@ -1,4 +1,5 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from hitcount.views import HitCountDetailView
 from django.urls import reverse_lazy
 from .models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -9,9 +10,9 @@ class PostList(ListView):
     paginate_by = 3
 
 
-class PostDetailView(DetailView):
+class PostDetailView(HitCountDetailView):
     model = Post
-
+    count_hit = True
 
 class PostCreate(LoginRequiredMixin, CreateView):
     model = Post

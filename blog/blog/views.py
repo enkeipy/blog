@@ -1,8 +1,7 @@
-from django.views.generic import DetailView
 from posts.models import Post
-from django.shortcuts import get_object_or_404
+from posts.views import PostDetailView
 
-class HomePage(DetailView):
+class HomePage(PostDetailView):
     model = Post
     def get_object(self):
-        return Post.objects.last()
+        return Post.objects.first()
