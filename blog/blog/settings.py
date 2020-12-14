@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'blog',
     'posts',
     'hitcount',
+    'django.contrib.sites',
+    'django_comments',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

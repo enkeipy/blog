@@ -1,16 +1,20 @@
 {% extends "base.html" %}
 {% load static %}
+{% load hitcount_tags %}
+{% load comments %}
 {% block head %}
 <h1>Posts</h1>
 {% endblock head %}
 {% block content %}
+
 <div class="row">
     {% for post in object_list %}
+    {% get_comment_count for post as comment_count %}
     <div class="col-md-4 mb-3 mb-md-5">
     <div class="card">
         <div class="card-body">
             <h5 class="card-title"><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></h5>
-            <p class="card-text"><small class="text-muted">{{ post.creation_date }}</small></p>
+            <p class="card-text"><small class="text-muted">{{ post.creation_date }}, Views: {% get_hit_count for post %}, Comments: {{ comment_count }}</small></p>
         </div>
         {% if post.image %}
         <img src="{{post.image.url}}" class="card-img-bottom" alt="{{ post.title }}" />
