@@ -5,20 +5,42 @@
 {% endblock head %}
 {% block content %}
 <div class="row">
-    {% for post in object_list %}
     <div class="col-md-4 mb-3 mb-md-5">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title"><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></h5>
-            <p class="card-text"><small class="text-muted">{{ post.creation_date }}</small></p>
-        </div>
-        {% if post.image %}
-        <img src="{{post.image.url}}" class="card-img-bottom" alt="{{ post.title }}" />
-        {% else %}
-        <img src="{% static 'posts/images/placeholder.jpg' %}" class="card-img-bottom" alt="{{ post.title }}" />
-        {% endif %}
+        <h4 class="text-center">About</h3>
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text">Have experience in creation web apps with Python and Django, JavaScript and
+                        Node.js + Express.js, RDBMS like PostgreSQL and NoSQL like MongoDB with mongoose. Know REST API,
+                        Git, Linux, jQuery, Bootstrap, HTML, CSS. Create and deploy to AWS EC2 and have basic
+                        understanding of other Amazon services and Docker containers. Have over one year of experience
+                        with PHP, MySQL and JS for WordPress development. Bachelor's degree in Electrical and
+                        Electronics Engineering.</p>
+                </div>
+            </div>
     </div>
+    <div class="col-md-4 mb-3 mb-md-5">
+        <h4 class="text-center">New Post</h3>
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'posts:detail' post.pk %}">{{ post.title }}</a></h5>
+                </div>
+                {% if post.image %}
+                <img src="{{post.image.url}}" class="card-img-bottom" alt="{{ post.title }}" />
+                {% else %}
+                <img src="{% static 'posts/images/placeholder.jpg' %}" class="card-img-bottom" alt="{{ post.title }}" />
+                {% endif %}
+            </div>
     </div>
-    {% endfor %}
+        <div class="col-md-4 mb-3 mb-md-5">
+        <h4 class="text-center">Links</h3>
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-text"><a target="_blank" href="https://www.linkedin.com/in/enkeipy/">LinkedIn</a></p>
+                    <p class="card-text"><a target="_blank" href="https://github.com/">GitHub</a></p>
+                    <p class="card-text"><a target="_blank" href="https://enkeipy.dev/">enkeipy.dev</a></p>
+                    <p class="card-text"><a href="mailto:kukshynsky@gmail.com">kukshynsky@gmail.com</a></p>
+                </div>
+            </div>
+    </div>
 </div>
 {% endblock %}
